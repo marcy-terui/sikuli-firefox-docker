@@ -1,0 +1,7 @@
+#!/bin/sh
+rm -f /tmp/.X99-lock
+/usr/bin/Xvfb :99 &
+while [ ! -f /tmp/.X99-lock ]; do sleep 1; done
+firefox &
+
+exec /usr/bin/java -cp "/usr/share/java/jna.jar:/usr/share/java/asm3.jar:/usr/share/java/asm3-commons.jar:/usr/share/java/antlr3-runtime.jar:/usr/share/java/libconstantine-java.jar:/usr/share/java/jython.jar:/usr/share/java/sikuli-script.jar:/usr/share/maven-repo/com/google/guava/guava/debian/guava-debian.jar:/usr/share/maven-repo/org/jruby/ext/posix/jnr-posix/debian/jnr-posix-debian.jar:/usr/share/java/jaffl.jar" -Dfile.encoding=UTF-8 -Dpython.home=/usr/share/jython -Dpython.path="/usr/share/sikuli/Lib" -Dpython.cachedir=$HOME/.jython-cache org.sikuli.script.SikuliScript "$@"
