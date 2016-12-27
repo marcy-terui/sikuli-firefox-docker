@@ -4,5 +4,6 @@ sikuli-firefox-docker
 # Usage
 
 ```sh
-docker -v $PWD:/sikuli $CONTAINER_ID /sikuli/your.sikuli
+docker build -t $IMAGE_NAME .
+docker -v $PWD:/sikuli $IMAGE_NAME /sikuli/your.sikuli
 ```
